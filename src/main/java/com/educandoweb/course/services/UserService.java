@@ -7,18 +7,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.educandoweb.course.entities.User;
-import com.educandoweb.course.repositories.UserRepositoy;
+import com.educandoweb.course.repositories.UserRepository;
 
 @Service
 public class UserService {
 
 	@Autowired
-	private UserRepositoy repository;
+	private UserRepository repository;
 	
+	//método para buscar todos os usuarios da lista
 	public List<User> findAll() {
 		return repository.findAll();
 	}
 	
+	//método para fazer a busca por id
 	public User findById(Long id) {
 		Optional<User> obj = repository.findById(id);
 		return obj.get();		
